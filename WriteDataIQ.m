@@ -10,7 +10,7 @@ status = 0;
 fId = fopen(fileName, 'w');
 if fId == -1
     status = -1;
-    exit();
+    return;
 end
 fwrite(fId, data, precision);
 fclose(fId);
