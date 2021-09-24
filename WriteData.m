@@ -1,15 +1,15 @@
 function [ status ] = WriteData(fileName, data, precision)
 
-if ~isreal(data)
-    data2write = zeros(1, 2 * length(data));
-    data2write(1:2:end-1) = real(data);
-    data2write(2:2:end) = imag(data);
+if strcmp(precision, 'iq16') || strcmp(precision, 'iq32')
     if strcmp(precision, 'iq16')
         precision = 'int16';
     end
     if strcmp(precision, 'iq32')
         precision = 'int32';
     end
+    data2write = zeros(1, 2 * length(data));
+    data2write(1:2:end-1) = real(data);
+    data2write(2:2:end) = imag(data);
 else
     data2write = data;
 end
