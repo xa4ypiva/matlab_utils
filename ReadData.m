@@ -27,6 +27,10 @@ if isComplex
 end
 
 fId = fopen(fileName);
+if fId == -1
+    error("Can not open file %s", fileName)
+end
+
 fseek(fId, offsetSmpl * sizeof(precision) * coeffSample, 'bof');
 data = fread(fId, length * coeffSample, precision);
 fclose(fId);
