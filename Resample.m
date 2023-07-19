@@ -1,8 +1,13 @@
-function [xOut] = Resample(xIn, fsIn, fsOut)
+function [xOut] = Resample(xIn, fsIn, fsOut, n)
 
-factor = fsOut / fsIn;
-[p, q] = rat(factor);
-xOut = resample(xIn, p, q);
+[p, q] = rat(fsOut / fsIn);
+
+if (nargin < 4)
+    xOut = resample(xIn, p, q);
+else
+    xOut = resample(xIn, p, q, n);
+end
+
 
 end
 
