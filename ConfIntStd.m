@@ -6,12 +6,7 @@ function ciOneSide = ConfIntStd(std, expNum, beta)
 
 alpha = 1 - beta;
 t = pbf(1 - alpha / 2);
-
-dataLen = length(std);
-stdstd = zeros(1, dataLen);
-for i = 1 : dataLen 
-    stdstd(i) = sqrt(2 * std(i) / (expNum - 1));
-end
+stdstd = sqrt(2 * std / (expNum - 1));
 ciOneSide = t * stdstd;
 
 end
