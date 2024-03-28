@@ -1,4 +1,12 @@
-function [ status ] = WriteData(fileName, data, precision)
+function [ status ] = WriteData(fileName, data, precision, skip, machinefmt)
+
+if nargin < 4
+    skip = 0;
+end
+
+if nargin < 5
+    machinefmt = [];
+end
 
 if isreal(data)
     data2write = data;
@@ -22,7 +30,7 @@ if fId == -1
     status = -1;
     exit();
 end
-fwrite(fId, data2write, precision);
+fwrite(fId, data2write, precision, skip, machinefmt);
 fclose(fId);
 
 end
