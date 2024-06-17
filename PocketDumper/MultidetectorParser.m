@@ -26,6 +26,7 @@ for line=0 : linesAmount-1
     start = line * lineSize + 1;
     % Парсим линии
     [lineHeader, amplitudes] = ParseLine(body(start:start + lineSize - 1), type);
+
     if startLine == -1
         startLine = lineHeader.lineNum;
     end
