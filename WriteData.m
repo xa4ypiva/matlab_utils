@@ -5,7 +5,7 @@ if nargin < 4
 end
 
 if nargin < 5
-    machinefmt = [];
+    machinefmt = 'l';
 end
 
 if isreal(data)
